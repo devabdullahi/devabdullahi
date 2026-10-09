@@ -1,40 +1,21 @@
-                                            `'.''
-   -!t+.'`                                '.=YZCx``
-  ~1vUpqt..`                            `.;CmqmQY!.
-  +1Cdpmpm= ',                         `.lQwmwwLvj.`
-  !l1zqpmqbY'.`,                     `.,rQwmZmmUvJ''
-  i1iifJQZZQUt''`,,    ~+-,,~~,```:'.`fCU0ZmZ00Z0Z .
-  1trYULQ00ZQYCz+i11tt+-!=1l+1rfi1j1zLzCQZwwm0mqwQ .
-  1li1f11rxjxj~lJxll11~=;;+l-j1tjJCmLtrvCCYYJQQLmZ '
-  !t!=1ll!!1i=+1jrt!+==l~!1vtfti!ltYYzYUUCvJUQmb0; `
-   +tf=;;-+fUwQv1=+=~:;++1lf+==:;~~+!tYCJzJC1jmkq..`
-   tr!-:jvflfj1=-+1=i++i;!=!-fl-+~-~ii!txzUpqJJd&=.`
-   +j1!xvxj!l-+1i`-ti+tl~!+lf+rx-!~-lztlitzJLwwdQ,.
-    -=1ltjfi=ljfxl+YrrYj~!lil1j0JYxxCmZLx!i1tzYY+ `
-    ;!i1i=!;+frf  .--.  ==!l1llU  .--.  l=+lzUUJx:'`
-     ~!f1i=;''`: /    \ ,-~!=!wq /    \ +~-`,izJvx~'
-      :,.`-11fl++     .1~:;;=x@+1-    1%Zrv0U--fxYx,
-      '.~tr1rZ*mr:  '. fLffrLkB:,t~,=zwv-~fZwJ, .;=``
-       ,~+it++lxCmmddJ,'1jzzCJj.lk#dUtlllijzxbmYjzl``
-       ~~:-~-:;+=jzzC!;-;;itl=!l,;1xJr+-tYYzp8B%8&L,,`
-        =;,;-+::+li-:iCj.:  ,,  wf~+tQQrl=1zzJp%Bmz;''
-         ,:;-;:-!+:.:~fzf `\/` *Lzl!!tx1!i+`  'f1j*!..
-         .`,,~!!=-~--+!f\__/\__/*mjxUJU0CLQUrl~-f*%f`'
-        :;=1ft1ttl!i+!ill!+',+zUUUjfQq0QZwZwmw0LdWw:.'
-       ;--;;==!!!==~=!=--+++=i==1jjjxC0CCxxvJYvQdb1''`
-       =~~-:',:,;+!==!!itfzxYwpwULmd*Qf1~==;1LpMWQ,.'
-       +====~:`'',:+!li1ttjrxJCYQqwrj=:;=jtYJCU0U+`,:
-         ~iliili-'..:~!!=!111ti!i+: .:fQbM&8*wY1~,:;
-          `',,,;=!-,`'`'`--i=l+,;-~==--~+!tj=:;ji;-
-          ;,,,`''`:::,;=ii;-~+iffx1+1+`.. .`~jjj-~
-         :;,,``'':`'...`~i, `Lt`'.',``:+!~1LZJvt-
-       ill=!!=l!~~+==-,` ''  .  .-fjYUvfjvvf--ii-+
-      ++!-+i;-=i=~;=ijfx0*Q1rwQJvCZ0Cvvx1Q0L0Cxf=~
-      '''..'''':~ii;``lCLmkwqpUYbd0m!-;-=iJ00wb*C=
-     .,,,,`-:'. ..''.   `;jf=i-,;+1=.        .:l1i
-     =l1ffl!1i+:''.'..`~'   .  ,jJ!   ,~;~i-  .`-!
-     =!tf11JYjYJrxiijrtvvlrjLrfxzt: .+zxxQpkZUUY!!
-     -=+~jrfi,`-=vrl-~==lfrC1+f=lxCjvZQY~-i!rmWYi!
-     ~~-~;`.-i=!~+::'. ';:`!i~;.;txzzLY=, ',:;LY++
-     ~+!==ilxrfti=1tit+;`.jQ#ZQi=;tf~;l!+l1zqdv!+=
-     ,=lft1jxzzCtx=jlvQz!:f+mYjx!rx-1LwdZCZp##C!!!
+      /\                  /\
+     /  \                /  \
+    / /\ \______________/ /\ \
+   /         ~~    ~~         \
+  |                            |
+  |      .--.        .--.      |
+  |     /    \      /    \     |
+  |                            |
+==|    *        \/        *    |==
+--|           \_/\_/           |--
+   \                          /
+    '-.____________________.-'
+     /                      \
+    /    ~~~~~      ~~~~~    \
+   /    ~~~~~~      ~~~~~~    \
+  |      ~~~~~~~~~~~~~~~~      |
+  |    ~~~~~~        ~~~~~~    |
+  |     ~~~~~        ~~~~~     |
+  |    ___              ___    |
+   \  (___)            (___)  /
+    '-.____________________.-'
