@@ -57,7 +57,7 @@
 <g class="msg" style="animation-delay:12s"><g class="type" style="animation-delay:12s"><text class="bubble"><tspan x="414" y="126.0">his goal: software engineer at a quant firm.</tspan><tspan x="414" y="146.0">fast code, real money, no pressure.</tspan></text></g></g>
 <g class="msg" style="animation-delay:16s"><g class="type" style="animation-delay:16s"><text class="bubble"><tspan x="414" y="126.0">currently building CarCare AI for iOS</tspan><tspan x="414" y="146.0">and a sorghum plant detector.</tspan></text></g></g>
 <g class="msg" style="animation-delay:20s"><g class="type" style="animation-delay:20s"><text class="bubble"><tspan x="414" y="126.0">he writes Swift, Python, Kotlin and Java.</tspan><tspan x="414" y="146.0">i write nothing. i have no thumbs.</tspan></text></g></g>
-<g class="msg" style="animation-delay:24s"><g class="type" style="animation-delay:24s"><text class="bubble"><tspan x="414" y="126.0">0 commits so far. i&#x27;ve made 0.</tspan><tspan x="414" y="146.0">i supervise from the keyboard.</tspan></text></g></g>
+<g class="msg" style="animation-delay:24s"><g class="type" style="animation-delay:24s"><text class="bubble"><tspan x="414" y="126.0">hiring? his email is right below.</tspan><tspan x="414" y="146.0">i come included. non-negotiable.</tspan></text></g></g>
 <text x="392" y="224">
 <tspan x="392" y="224"><tspan class="prompt">~ $ </tspan><tspan class="cmd">cat ~/.profile</tspan></tspan>
 <tspan x="392" y="244"><tspan class="key">name</tspan><tspan class="cc"> ........ </tspan><tspan class="value">Abdullahi Khalafalla</tspan></tspan>
@@ -66,9 +66,5 @@
 <tspan x="392" y="304"><tspan class="key">school</tspan><tspan class="cc"> ...... </tspan><tspan class="value">B.S. Computer Science @ UT Arlington</tspan></tspan>
 <tspan x="392" y="324"><tspan class="key">email</tspan><tspan class="cc"> ....... </tspan><tspan class="value">abdulahikhalafalla@gmail.com</tspan></tspan>
 <tspan x="392" y="344"></tspan>
-<tspan x="392" y="364"><tspan class="prompt">~ $ </tspan><tspan class="cmd">gh stats devabdullahi</tspan></tspan>
-<tspan x="392" y="384"><tspan class="key">repos </tspan><tspan class="value">0</tspan><tspan class="cc">  |  </tspan><tspan class="key">stars </tspan><tspan class="value">0</tspan><tspan class="cc">  |  </tspan><tspan class="key">commits </tspan><tspan class="value">0</tspan><tspan class="cc">  |  </tspan><tspan class="key">followers </tspan><tspan class="value">0</tspan></tspan>
-<tspan x="392" y="404"><tspan class="key">on github for </tspan><tspan class="value">5 years, 9 months, 8 days</tspan></tspan>
-<tspan x="392" y="424"></tspan>
-<tspan x="392" y="444"><tspan class="prompt">~ $ </tspan><tspan class="cursor">█</tspan></tspan>
+<tspan x="392" y="364"><tspan class="prompt">~ $ </tspan><tspan class="cursor">█</tspan></tspan>
 </text></svg>

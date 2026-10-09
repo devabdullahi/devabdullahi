@@ -54,7 +54,7 @@ def build(st, freeze=None):
         ("his goal: software engineer at a quant firm.", "fast code, real money, no pressure."),
         ("currently building CarCare AI for iOS", "and a sorghum plant detector."),
         ("he writes Swift, Python, Kotlin and Java.", "i write nothing. i have no thumbs."),
-        (f"{f(st['commits'])} commits so far. i've made 0.", "i supervise from the keyboard."),
+        ("hiring? his email is right below.", "i come included. non-negotiable."),
     ]
     BW = 46                      # bubble inner width (chars)
     SEC = 4                      # seconds per message
@@ -66,11 +66,6 @@ def build(st, freeze=None):
         [("key", "prev"), ("cc", " ........ "), ("value", "Apple (Siri) · Ford (FordPass)")],
         [("key", "school"), ("cc", " ...... "), ("value", "B.S. Computer Science @ UT Arlington")],
         [("key", "email"), ("cc", " ....... "), ("value", "abdulahikhalafalla@gmail.com")],
-        [],
-        [("prompt", "~ $ "), ("cmd", "gh stats " + USER)],
-        [("key", "repos "), ("value", f(st["repos"])), ("cc", "  |  "), ("key", "stars "), ("value", f(st["stars"])),
-         ("cc", "  |  "), ("key", "commits "), ("value", f(st["commits"])), ("cc", "  |  "), ("key", "followers "), ("value", f(st["followers"]))],
-        [("key", "on github for "), ("value", uptime(st["created"]))],
         [],
         [("prompt", "~ $ "), ("cursor", "\u2588")],
     ]
