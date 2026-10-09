@@ -85,16 +85,17 @@ def build(st):
         "dark":  dict(bg="#161b22", text="#c9d1d9", key="#ffa657", value="#a5d6ff", cc="#616e7f"),
         "light": dict(bg="#f6f8fa", text="#24292f", key="#953800", value="#0a3069", cc="#c2cfde"),
     }
-    LH, TOP, ART_X, INFO_X, WPX = 20, 30, 15, 395, 985
-    H = TOP + max(len(art), len(info)) * LH
+    LH, TOP, ART_X, INFO_X, WPX = 20, 30, 18, 395, 985
+    ALH = 12  # art line height (art uses a smaller font for more detail)
+    H = TOP + max(len(art) * ALH, len(info) * LH)
     for name, t in themes.items():
         o = ['<?xml version="1.0" encoding="utf-8"?>',
              f'<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" font-family="ConsolasFallback,Consolas,Menlo,DejaVu Sans Mono,Courier New,monospace" width="{WPX}px" height="{H}px" font-size="16px">',
              '<style>@font-face{src:local("Consolas"),local("Consolas Bold");font-family:"ConsolasFallback";font-display:swap;-webkit-size-adjust:109%;size-adjust:109%;}'
              f'.key{{fill:{t["key"]};}}.value{{fill:{t["value"]};}}.cc{{fill:{t["cc"]};}}text,tspan{{white-space:pre;}}</style>',
              f'<rect width="{WPX}px" height="{H}px" fill="{t["bg"]}" rx="15"/>',
-             f'<text x="{ART_X}" y="{TOP}" fill="{t["text"]}" class="ascii">']
-        o += [f'<tspan x="{ART_X}" y="{TOP + i * LH}">{html.escape(l)}</tspan>' for i, l in enumerate(art)]
+             f'<text x="{ART_X}" y="{TOP - 4}" fill="{t["text"]}" font-size="11px" class="ascii">']
+        o += [f'<tspan x="{ART_X}" y="{TOP - 4 + i * ALH}">{html.escape(l)}</tspan>' for i, l in enumerate(art)]
         o += ["</text>", f'<text x="{INFO_X}" y="{TOP}" fill="{t["text"]}">']
         for i, line in enumerate(info):
             parts = "".join(f'<tspan class="{c}">{html.escape(s)}</tspan>' for c, s in line)
