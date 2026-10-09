@@ -48,13 +48,7 @@ def build(st, freeze=None):
     art = open("cat.txt").read().split("\n")
     f = lambda n: f"{n:,}"
     msgs = [
-        ("meow. i'm the cat on abdullahi's profile.", "he studies CS at UT Arlington."),
-        ("right now he builds multi-agent AI", "workflows at IBM in Austin."),
-        ("before that: Siri + on-device LLMs at Apple,", "and the FordPass app at Ford."),
-        ("his goal: software engineer at a quant firm.", "fast code, real money, no pressure."),
-        ("currently building CarCare AI for iOS", "and a sorghum plant detector."),
-        ("he writes Swift, Python, Kotlin and Java.", "i write nothing. i have no thumbs."),
-        ("hiring? his email is right below.", "i come included. non-negotiable."),
+        ("meow! welcome to abdullahi's github.", "make yourself at home and look around."),
     ]
     BW = 46                      # bubble inner width (chars)
     SEC = 4                      # seconds per message
@@ -82,12 +76,8 @@ def build(st, freeze=None):
                f'.prompt{{fill:{t["prompt"]};}}.cmd{{fill:{t["text"]};}}.bubble{{fill:{t["bubble"]};}}'
                'text,tspan{white-space:pre;}')
         if freeze is None:
-            pct = 100 / len(msgs)
-            css += (f'.msg{{opacity:0;animation:show {total}s infinite;}}'
-                    f'@keyframes show{{0%{{opacity:1}}{pct - 1.2:.2f}%{{opacity:1}}{pct - 0.6:.2f}%,100%{{opacity:0}}}}'
-                    f'.type{{animation:type {total}s infinite;}}'
-                    f'@keyframes type{{0%{{clip-path:inset(0 100% 0 0);animation-timing-function:steps({BW})}}'
-                    f'{pct * 0.45:.2f}%,100%{{clip-path:inset(0 0 0 0)}}}}'
+            css += (f'.type{{clip-path:inset(0 100% 0 0);animation:type 2.5s steps({BW}) 0.6s forwards;}}'
+                    '@keyframes type{to{clip-path:inset(0 0 0 0)}}'
                     '.cursor{fill:' + t["text"] + ';animation:blink 1s steps(1) infinite;}@keyframes blink{50%{opacity:0}}'
                     '.tail{animation:wag 2s ease-in-out infinite;}@keyframes wag{50%{opacity:.35}}')
         else:
@@ -110,7 +100,7 @@ def build(st, freeze=None):
         for i, (a, b) in enumerate(msgs):
             if freeze is not None and i != freeze:
                 continue
-            style = "" if freeze is not None else f' style="animation-delay:{i * SEC}s"'
+            style = ""
             o.append(f'<g class="msg"{style}><g class="type"{style}><text class="bubble">'
                      f'<tspan x="{X + 22}" y="{BY + 1.5 * LH}">{html.escape(a)}</tspan>'
                      f'<tspan x="{X + 22}" y="{BY + 2.5 * LH}">{html.escape(b)}</tspan></text></g></g>')
