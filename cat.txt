@@ -1,40 +1,21 @@
-
-             .                          ..
-            'Cx;                      :rQ'
-            ;qwqLi'                .!Cqwq+
-            1qUJ0qZr;            :j0q0JLqj
-           .YqJvvYJYYt1lzYftYvl1tvYJYvvYqL'
-           `mwrtrY0pddZjddCJddx0ddpZJxtrmw,
-           ~vzUpddddddpvdd0UddJwdddddddQzv!
-          `xqddddddddddQddwmddQddddddddddqz,
-         !mddddddddddddpdddpddpddddddddddddwl.
-        fpddddmjxl',!JddddddddddLfr-'-tZdddddx.
-       ldddddU`J@@x...iddddddddt.&@B`..'Cdddddf
-      `mddddd=.'li'....UddddddZ..;t-....;dddddq,
-      =dddddd1.':~~1w''mddddddq`.`;~~Cx.!ddddddl
-      iddddddqUpdddddmQdddddddd0ZdddddpQwddddddt
-  ,'  ~QZmqpddddddddddbkkQrrLbkbddddddddddqwZ0U!  .,
-   .,,;vZ0QpMMMWM#bd*8BBBBkd%BBB8*dd#MWMMMdQ0mJ;,,'
-  ,`,`-tUQ0pMMMMM#bd80MBB#Zm#%BWZ8bb#MMMMMd0QQf~`,``
-  ,,,`,,~Cwmmqbbdddd*&dJYUpdQYYp&#ddddbbpwwqQ+,`,,,`
-         .fwddddddddddbx`++++,fbddddddddddqr'
-           `jZddddddddddQCCCCUddddddddddmr,
-             .+z0ddddddddddddddddddddZv=.
-                '!jzJQmpddddddpmQJzji`
-               :zJ0mmUQZQQQQQQ0QUZm0Cz-
-              !0mmmmmp&&&&&&&&&&dmmmmmZl.
-             1mmmQCvzM&&&&&&&&&&WzvJQmmmj.
-            !mmmzvL0p&&&&&&&&&&&&b0UYzZmml
-           ,Qmmmmmmmk&&&&&&&&&&&&*mmmmmmmZ:
-           1mmmmmZUJw&&&&&&&&&&&&qJUZmmmmmj
-          .YmmmmvxJUq&&&&&&&&&&&&pUCzzZmmmC'
-          'LmmmmZmmmmM&&&&&&&&&&Wwmmmmmmmm0'
-          'Cmmmmmm0LJCW&&&&&&&&WLJL0mmmmmmU'
-           rmmmmJxvCU0wM&&&&&&Wq0UCvxYZmmmz.
-           -mmmm0mmmmmmmpk##*dmmmmmmm0mmmm=
-           .rmmmmmmmmmmmmmmmmmmmmmmmmmmmmv.
-            'JmmmmZULLZmmmmmmmmZULLZmmmmL`
-             `vmCZdMWWdmCmmmmCZdMWWdmCmJ,
-              .=q%WWk%k%bvmmCq%WWk%k%b=.
-                -Uk&88kmCmmmmCmk&88kQ+
-                  .:lzQmmmmmmmm0v1;.
+      /\                  /\
+     /  \                /  \
+    / /\ \______________/ /\ \
+   /         ~~    ~~         \
+  |                            |
+  |      .--.        .--.      |
+  |     /    \      /    \     |
+  |                            |
+==|    *        \/        *    |==
+--|           \_/\_/           |--
+   \                          /
+    '-.____________________.-'
+     /                      \
+    /    ~~~~~      ~~~~~    \
+   /    ~~~~~~      ~~~~~~    \
+  |      ~~~~~~~~~~~~~~~~      |
+  |    ~~~~~~        ~~~~~~    |
+  |     ~~~~~        ~~~~~     |
+  |    ___              ___    |
+   \  (___)            (___)  /
+    '-.____________________.-'
