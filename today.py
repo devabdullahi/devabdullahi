@@ -67,8 +67,8 @@ def build(st, freeze=None):
         "dark":  dict(bg="#161b22", text="#c9d1d9", key="#ffa657", value="#a5d6ff", cc="#616e7f", prompt="#3fb950", bubble="#e6edf3"),
         "light": dict(bg="#f6f8fa", text="#24292f", key="#953800", value="#0a3069", cc="#8c959f", prompt="#1a7f37", bubble="#1f2328"),
     }
-    LH, ALH, TOP, ART_X, X, WPX = 20, 20, 26, 30, 392, 985
-    H = TOP + max(len(art) * ALH, 18 * LH) + 6
+    LH, ALH, TOP, ART_X, X, WPX = 20, 12, 26, 18, 392, 985
+    H = TOP + max(len(art) * ALH, 23 * LH)
     BY = TOP + 70                # bubble top (tail lines up with the cat's face)
     TY = BY + 5 * LH + 28        # terminal top
     for name, t in themes.items():
@@ -86,7 +86,7 @@ def build(st, freeze=None):
              f'<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" font-family="ConsolasFallback,Consolas,Menlo,DejaVu Sans Mono,Courier New,monospace" width="{WPX}px" height="{H}px" font-size="16px">',
              '<style>@font-face{src:local("Consolas"),local("Consolas Bold");font-family:"ConsolasFallback";font-display:swap;-webkit-size-adjust:109%;size-adjust:109%;}' + css + '</style>',
              f'<rect width="{WPX}px" height="{H}px" fill="{t["bg"]}" rx="15"/>',
-             f'<text x="{ART_X}" y="{TOP}" fill="{t["text"]}">']
+             f'<text x="{ART_X}" y="{TOP}" fill="{t["text"]}" font-size="11px">']
         o += [f'<tspan x="{ART_X}" y="{TOP + i * ALH}">{html.escape(l)}</tspan>' for i, l in enumerate(art)]
         o.append("</text>")
         # speech bubble frame
