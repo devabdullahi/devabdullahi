@@ -43,65 +43,89 @@ def uptime(since):
     s = lambda n, w: f"{n} {w}{'' if n == 1 else 's'}"
     return f"{s(y,'year')}, {s(m,'month')}, {s(d,'day')}"
 
-def build(st):
+def build(st, freeze=None):
+    """freeze=i renders message i statically (for previews); None = animated."""
     art = open("cat.txt").read().split("\n")
-    W = 58
-    def dots(n): return " " + "." * max(n, 1) + " "
-    def kv(key, val): return [("cc", ". "), ("key", key), ("cc", ":"), ("cc", dots(W - len(key) - len(val) - 5)), ("value", val)]
-    def hdr(t): return [("cc", "- "), ("key", t), ("cc", " " + "—" * (W - len(t) - 7) + "-—-")]
-    blank = [("cc", ". ")]
     f = lambda n: f"{n:,}"
-    left1 = f"Repos: .... {f(st['repos'])} {{Contributed: {f(st['contributed'])}}}"
-    left2 = f"Commits: .......... {f(st['commits'])}"
-    info = [
-        [("key", "abdullahi@khalafalla"), ("cc", " " + "—" * (W - 25) + "-—-")],
-        kv("OS", "macOS, iOS, Linux"),
-        kv("Uptime", uptime(st["created"])),
-        kv("Host", "IBM"),
-        kv("Kernel", "AI Software Engineer Intern"),
-        kv("Education", "B.S. Computer Science @ UT Arlington"),
-        kv("IDE", "Xcode, VS Code"),
-        blank,
-        kv("Languages.Programming", "Swift, Python, Kotlin, Java"),
-        kv("Languages.Computer", "HTML, CSS, JSON, YAML"),
-        kv("Languages.Real", "English"),
-        blank,
-        kv("Prev.Experience", "Apple (Siri), Ford (FordPass)"),
-        kv("Projects", "CarCare AI, Sorghum Detector"),
-        kv("Interests", "Quant, Multi-Agent AI, On-Device ML"),
-        blank,
-        hdr("Contact"),
-        kv("Email.Personal", "abdulahikhalafalla@gmail.com"),
-        kv("GitHub", USER),
-        blank,
-        hdr("GitHub Stats"),
-        [("cc", ". "), ("key", "Repos"), ("cc", ": .... "), ("value", f(st["repos"])), ("cc", " {"), ("key", "Contributed"),
-         ("cc", ": "), ("value", f(st["contributed"])), ("cc", "} | "), ("key", "Stars"),
-         ("cc", ":" + dots(W - len(left1) - 13 - len(f(st['stars'])))), ("value", f(st["stars"]))],
-        [("cc", ". "), ("key", "Commits"), ("cc", ": .......... "), ("value", f(st["commits"])), ("cc", " | "), ("key", "Followers"),
-         ("cc", ":" + dots(W - len(left2) - 17 - len(f(st['followers'])))), ("value", f(st["followers"]))],
+    msgs = [
+        ("meow. i'm the cat on abdullahi's profile.", "he studies CS at UT Arlington."),
+        ("right now he builds multi-agent AI", "workflows at IBM in Austin."),
+        ("before that: Siri + on-device LLMs at Apple,", "and the FordPass app at Ford."),
+        ("his goal: software engineer at a quant firm.", "fast code, real money, no pressure."),
+        ("currently building CarCare AI for iOS", "and a sorghum plant detector."),
+        ("he writes Swift, Python, Kotlin and Java.", "i write nothing. i have no thumbs."),
+        (f"{f(st['commits'])} commits so far. i've made 0.", "i supervise from the keyboard."),
+    ]
+    BW = 46                      # bubble inner width (chars)
+    SEC = 4                      # seconds per message
+    total = SEC * len(msgs)
+    term = [
+        [("prompt", "~ $ "), ("cmd", "cat ~/.profile")],
+        [("key", "name"), ("cc", " ........ "), ("value", "Abdullahi Khalafalla")],
+        [("key", "now"), ("cc", " ......... "), ("value", "AI Software Engineer Intern @ IBM")],
+        [("key", "prev"), ("cc", " ........ "), ("value", "Apple (Siri) · Ford (FordPass)")],
+        [("key", "school"), ("cc", " ...... "), ("value", "B.S. Computer Science @ UT Arlington")],
+        [("key", "email"), ("cc", " ....... "), ("value", "abdulahikhalafalla@gmail.com")],
+        [],
+        [("prompt", "~ $ "), ("cmd", "gh stats " + USER)],
+        [("key", "repos "), ("value", f(st["repos"])), ("cc", "  |  "), ("key", "stars "), ("value", f(st["stars"])),
+         ("cc", "  |  "), ("key", "commits "), ("value", f(st["commits"])), ("cc", "  |  "), ("key", "followers "), ("value", f(st["followers"]))],
+        [("key", "on github for "), ("value", uptime(st["created"]))],
+        [],
+        [("prompt", "~ $ "), ("cursor", "\u2588")],
     ]
     themes = {
-        "dark":  dict(bg="#161b22", text="#c9d1d9", key="#ffa657", value="#a5d6ff", cc="#616e7f"),
-        "light": dict(bg="#f6f8fa", text="#24292f", key="#953800", value="#0a3069", cc="#c2cfde"),
+        "dark":  dict(bg="#161b22", text="#c9d1d9", key="#ffa657", value="#a5d6ff", cc="#616e7f", prompt="#3fb950", bubble="#e6edf3"),
+        "light": dict(bg="#f6f8fa", text="#24292f", key="#953800", value="#0a3069", cc="#8c959f", prompt="#1a7f37", bubble="#1f2328"),
     }
-    LH, TOP, ART_X, INFO_X, WPX = 20, 30, 18, 395, 985
-    ALH = 12  # art line height (art uses a smaller font for more detail)
-    H = TOP + max(len(art) * ALH, len(info) * LH)
+    LH, ALH, TOP, ART_X, X, WPX = 20, 12, 26, 18, 392, 985
+    H = TOP + max(len(art) * ALH, 23 * LH)
+    BY = TOP + 70                # bubble top (tail lines up with the cat's face)
+    TY = BY + 5 * LH + 28        # terminal top
     for name, t in themes.items():
+        css = (f'.key{{fill:{t["key"]};}}.value{{fill:{t["value"]};}}.cc{{fill:{t["cc"]};}}'
+               f'.prompt{{fill:{t["prompt"]};}}.cmd{{fill:{t["text"]};}}.bubble{{fill:{t["bubble"]};}}'
+               'text,tspan{white-space:pre;}')
+        if freeze is None:
+            pct = 100 / len(msgs)
+            css += (f'.msg{{opacity:0;animation:show {total}s infinite;}}'
+                    f'@keyframes show{{0%{{opacity:1}}{pct - 1.2:.2f}%{{opacity:1}}{pct - 0.6:.2f}%,100%{{opacity:0}}}}'
+                    f'.type{{animation:type {total}s infinite;}}'
+                    f'@keyframes type{{0%{{clip-path:inset(0 100% 0 0);animation-timing-function:steps({BW})}}'
+                    f'{pct * 0.45:.2f}%,100%{{clip-path:inset(0 0 0 0)}}}}'
+                    '.cursor{fill:' + t["text"] + ';animation:blink 1s steps(1) infinite;}@keyframes blink{50%{opacity:0}}'
+                    '.tail{animation:wag 2s ease-in-out infinite;}@keyframes wag{50%{opacity:.35}}')
+        else:
+            css += '.cursor{fill:' + t["text"] + ';}'
         o = ['<?xml version="1.0" encoding="utf-8"?>',
              f'<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" font-family="ConsolasFallback,Consolas,Menlo,DejaVu Sans Mono,Courier New,monospace" width="{WPX}px" height="{H}px" font-size="16px">',
-             '<style>@font-face{src:local("Consolas"),local("Consolas Bold");font-family:"ConsolasFallback";font-display:swap;-webkit-size-adjust:109%;size-adjust:109%;}'
-             f'.key{{fill:{t["key"]};}}.value{{fill:{t["value"]};}}.cc{{fill:{t["cc"]};}}text,tspan{{white-space:pre;}}</style>',
+             '<style>@font-face{src:local("Consolas"),local("Consolas Bold");font-family:"ConsolasFallback";font-display:swap;-webkit-size-adjust:109%;size-adjust:109%;}' + css + '</style>',
              f'<rect width="{WPX}px" height="{H}px" fill="{t["bg"]}" rx="15"/>',
-             f'<text x="{ART_X}" y="{TOP - 4}" fill="{t["text"]}" font-size="11px" class="ascii">']
-        o += [f'<tspan x="{ART_X}" y="{TOP - 4 + i * ALH}">{html.escape(l)}</tspan>' for i, l in enumerate(art)]
-        o += ["</text>", f'<text x="{INFO_X}" y="{TOP}" fill="{t["text"]}">']
-        for i, line in enumerate(info):
+             f'<text x="{ART_X}" y="{TOP}" fill="{t["text"]}" font-size="11px">']
+        o += [f'<tspan x="{ART_X}" y="{TOP + i * ALH}">{html.escape(l)}</tspan>' for i, l in enumerate(art)]
+        o.append("</text>")
+        # speech bubble frame
+        frame = [" ." + "-" * (BW + 2) + ".", " |" + " " * (BW + 2) + "|", "<|" + " " * (BW + 2) + "|",
+                 " |" + " " * (BW + 2) + "|", " '" + "-" * (BW + 2) + "'"]
+        o.append(f'<text class="cc">')
+        for i, l in enumerate(frame):
+            cls = ' class="tail"' if l.startswith("<") else ""
+            o.append(f'<tspan x="{X - 5}" y="{BY + i * LH}"{cls}>{html.escape(l)}</tspan>')
+        o.append("</text>")
+        for i, (a, b) in enumerate(msgs):
+            if freeze is not None and i != freeze:
+                continue
+            style = "" if freeze is not None else f' style="animation-delay:{i * SEC}s"'
+            o.append(f'<g class="msg"{style}><g class="type"{style}><text class="bubble">'
+                     f'<tspan x="{X + 22}" y="{BY + 1.5 * LH}">{html.escape(a)}</tspan>'
+                     f'<tspan x="{X + 22}" y="{BY + 2.5 * LH}">{html.escape(b)}</tspan></text></g></g>')
+        o.append(f'<text x="{X}" y="{TY}">')
+        for i, line in enumerate(term):
             parts = "".join(f'<tspan class="{c}">{html.escape(s)}</tspan>' for c, s in line)
-            o.append(f'<tspan x="{INFO_X}" y="{TOP + i * LH}">{parts}</tspan>')
+            o.append(f'<tspan x="{X}" y="{TY + i * LH}">{parts}</tspan>')
         o.append("</text></svg>")
-        open(f"{name}_mode.svg", "w").write("\n".join(o))
+        out = f"{name}_mode.svg" if freeze is None else f"/home/claude/profile/frame_{name}_{freeze}.svg"
+        open(out, "w").write("\n".join(o))
 
 if __name__ == "__main__":
     if TOKEN:
